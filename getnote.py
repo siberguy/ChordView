@@ -1,8 +1,8 @@
 
 
 numfrets=13
-numstrings=6
-banjo=0
+#numstrings=6
+#banjo=0
 
 # Identify the intervals 
 
@@ -111,21 +111,36 @@ keys_inv = { 0  : 'C',
              11 : 'B',
 }
 
-tuning_dict = { 36  : 'C',
-                37  : 'Db',
-                38  : 'D',
-                39  : 'Eb',
-                40  : 'E',
-                41  : 'F',
-                42  : 'Gb',
-                43  : 'G',
-                44  : 'Ab',
-                45  : 'A',
-                46 : 'Bb',
-                47 : 'B',
+tunings = { "Standard" : ["E","B","G","D","A","E"],
+            "DADGAD" : ["D","A","G","D","A","D"],
+            "Open G" : ["D","B","G","D","G","D"],
+            "Open D" : ["D","A","F#","D","A","D"],
+            "Banjo G" : ["D","B","G","D","G"],
+            "Banjo Sawmill" : ["D","C","G","D","G"],
+            "Banjo Double C" : ["D","C","G","C","G"]
+          }
+
+tuning_dict = {  'C' : 36,
+                 'C#' : 37,
+                 'Db' : 37,
+                 'D' : 38,
+                 'D#' : 39,
+                 'Eb' : 39,
+                 'E' : 40,
+                 'F' : 41,
+                 'F#' : 42,
+                 'Gb' : 42,
+                 'G' : 43,
+                 'G#' : 44,
+                 'Ab' : 44,
+                 'A' : 45,
+                 'A#' : 46,
+                 'Bb' : 46,
+                 'B' : 47,
 }
 
 tuning = [40,47,43,38,45,40]
+tuning_note = ["E","B","G","D","A","E"]
 #tuning = [40,45,50,55,59,64]
 
 
@@ -168,7 +183,7 @@ def octvnote(nn):
 
 
 
-def get_note(s,f,k,c):
+def get_note(s,f,k,c,numstrings):
         #print("s ",s)
         #print("f ",f)
         #print("k ",k)
