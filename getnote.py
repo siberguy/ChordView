@@ -117,7 +117,8 @@ tunings = { "Standard" : ["E","B","G","D","A","E"],
             "Open D" : ["D","A","F#","D","A","D"],
             "Banjo G" : ["D","B","G","D","G"],
             "Banjo Sawmill" : ["D","C","G","D","G"],
-            "Banjo Double C" : ["D","C","G","C","G"]
+            "Banjo Double C" : ["D","C","G","C","G"],
+            "Banjo Loretta" : ["C","Bb","F","C","Eb"]
           }
 
 tuning_dict = {  'C' : 36,
@@ -165,8 +166,12 @@ def transp(k,m):
          r = (((m) << (12-(k))) & CHROMATIC | ((m) >> (k)))
          return r
 
-def fret_note(s,f):
-         return tuning[s] + f
+def fret_note(s,f,bnjo):
+        off=-5
+        if bnjo >0 and s == 4:
+             return tuning[s] + f +off
+        else:
+             return tuning[s] + f
 
 
 def notenum(n,o):
@@ -183,7 +188,7 @@ def octvnote(nn):
 
 
 
-def get_note(s,f,k,c,numstrings):
+def get_note(s,f,k,c,numstrings,bnjo):
         #print("s ",s)
         #print("f ",f)
         #print("k ",k)
@@ -205,7 +210,7 @@ def get_note(s,f,k,c,numstrings):
         mask2 = transp(key,mask)
 #       print 'mask2 = ',mask2
 
-        local_note = fret_note(s,f);
+        local_note = fret_note(s,f,bnjo);
 #       print 'local_note = ',local_note
         onote = octvnote(local_note);
 #       print '1 onote = ',onote
@@ -213,7 +218,7 @@ def get_note(s,f,k,c,numstrings):
         sw = inmask(onote,mask2) 
 #       print 'switch  = ',sw
 
-        if(inmask(onote,mask2)): 
+        if(sw): 
               n = (local_note + 3) % 12;  
 #             print 'n  = ',n
               str_ret = sharpnames[n]              

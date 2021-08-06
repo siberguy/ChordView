@@ -83,7 +83,7 @@ def draw_notes(canvas,key,chord,f1,df,s1,ds,bnjo,ns):
         #dc.SetTextForeground('#000000')
         for f in range(0, numfrets):
               for s in range(0, (ns)):
-                       note = get_note(s,f,key,chord,ns) 
+                       note = get_note(s,f,key,chord,ns,bnjo) 
 #                      #print "f,s ",f,s,' note = ',note
                        fout = f1 + f*df
                        sout = s1 + s*ds
@@ -98,7 +98,7 @@ def draw_notes(canvas,key,chord,f1,df,s1,ds,bnjo,ns):
                          if(note != ""):
                             canvas.create_oval(fout+diam, sout+diam, fout-diam, sout-diam, fill='#000000')
                          canvas.create_text(fout,sout,fill="white",font="Times 20 bold",text=note)
-                       if bnjo == 1 and s == 4 and f > 5:
+                       if bnjo == 1 and s == 4 and f > 4:
                          if(note != ""):
                             canvas.create_oval(fout+diam, sout+diam, fout-diam, sout-diam, fill='#000000')
                          canvas.create_text(fout,sout,fill="white",font="Times 20 bold",text=note)
