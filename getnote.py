@@ -167,6 +167,7 @@ def transp(k,m):
          return r
 
 def fret_note(s,f,bnjo):
+        # fix 5th string
         off=-5
         if bnjo >0 and s == 4:
              return tuning[s] + f +off
