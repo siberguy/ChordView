@@ -118,7 +118,13 @@ tunings = { "Standard" : ["E","B","G","D","A","E"],
             "Banjo G" : ["D","B","G","D","G"],
             "Banjo Sawmill" : ["D","C","G","D","G"],
             "Banjo Double C" : ["D","C","G","C","G"],
-            "Banjo Loretta" : ["C","Bb","F","C","Eb"]
+            "Banjo Loretta" : ["C","Bb","F","C","Eb"],
+            "Lap Steel " : ["D","A","F#","D","B","G"],
+            "Lap Steel A " : ["D","B","F#","D","B","G"],
+            "Lap Steel B " : ["D","A","G","D","B","G"],
+            "Lap Steel AB " : ["D","B","G","D","B","G"],
+            "Lap Steel C " : ["Db","A","F#","D","B","G"],
+            "Lap Steel BC " : ["Db","A","G","D","B","G"]
           }
 
 tuning_dict = {  'C' : 36,
